@@ -1,0 +1,589 @@
+
+
+<!doctype>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+	<link rel="stylesheet" href="https://smedia2.intoday.in/mailer/election-2017/swiper.min.css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			padding: 0
+		}
+
+		ul li {
+			list-style: none
+		}
+
+		body {
+			font-size: 100%;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		.swiper-container {
+			padding: 1px;
+			width: 130px;
+			height: 119px;
+			box-sizing: border-box;
+			
+		}
+
+		.swiper-container .swiper-wrapper li {
+			border-radius: 5px;
+			background: #fff;
+		}
+
+		.swiper-container .swiper-wrapper .swiper-slide.swiper-slide-active {
+			box-shadow: 0 1px 5px #b7aeae;
+			border: 1px solid #ffffff;
+		}
+
+		.match-detail,.matchprog-detail {
+			max-width: 100%;
+			display: flex;
+			flex-direction: row;
+			color: #fff;
+			padding: 3px 4px;
+		}
+
+		.scrmatch,.matchprog-detail {
+			background: #f4a846;
+			border-radius: 5px 5px 0 0;
+		}
+
+		.match-detail .series-name,.progr-seriesna {
+			flex: auto;
+			font-size: 12px;
+			font-weight: bold
+		}
+		.progr-seriesna{ margin-top:5px;}
+		.match-detail .match-status,.progr-teamvs {
+			width: 50px;
+			font-size: 14px;
+			font-weight: bold;
+			text-align: center;
+			background: #fff;
+			border-radius: 3px;
+			color: #000;
+			line-height: 17px;
+		}
+        .match-detail .notlive{
+                font-size: 9px;
+    width: auto;
+    padding: 0 3px;
+    font-weight: 300;
+            overflow: hidden;
+            max-width: 90px;
+            white-space: nowrap
+        }
+		.progr-teamvs {
+			width:auto;
+			border-radius: 2px;
+    padding: 0px 5px;
+    font-weight: 500;
+		}
+		.teamvs {
+			padding: 0px 3px;
+		}
+
+		.teamvs .teama,
+		.teamvs .teamb {
+			font-size: 13px;
+			padding: 2px 7px 0px;
+			color: #fff;
+			font-weight: bold;
+			display: inline-block;
+		}
+
+		.teamvs .batteam,.progr-teamvs {
+			background: #fff;
+			color: #000;
+			border-radius: 4px 4px 0px 0px;
+		}
+		.progr-teamvs{
+			border-radius: 2px;
+		}
+		.vs {
+			color: #fff;
+			padding: 3px;
+			font-size: 11px;
+		}
+		.upcmngvs{
+			color: #000;
+			padding: 3px;
+			font-size: 13px;
+		}
+		.scrcard {
+			text-align: center
+		}
+
+		.currentscore,.teamvs-upcoming .teama, .teamvs-upcoming .teamb {
+			padding: 4px 1px 2px;
+			font-size: 24px;
+			line-height: 23px;
+			font-weight: 900;
+		}
+		.teamvs-upcoming .teama, .teamvs-upcoming .teamb{
+			font-weight: 500;
+			font-size: 17px;
+		}
+		.upcming-detail{
+			width: 90%;
+			background: #fff;
+			margin: -14px auto 0;
+			text-align: center;
+			padding-top: 3px;
+			border-radius: 4px 4px 0px;
+		}
+		.upcoming-date,.upcoming-time,.upc-yettogo{
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 15px;
+            color: #585858;
+		}
+		.overs,
+		.target {
+			font-weight: 500;
+			font-size: 13px;
+			line-height: 17px;
+		}
+
+		div.livedot:before {
+			content: '';
+			width: 5px;
+			height: 5px;
+			border-radius: 100%;
+			background: #c00;
+			display: inline-block;
+			position: relative;
+			left: -7px;
+			top: -1px;
+			animation: pulse 1.7s infinite;
+		}
+		.progr-seriesna{
+			
+		}
+		table.scrlivebatt,table.scrliveb{
+			border-spacing: 1;
+			border-collapse: collapse;
+			background: white;
+			overflow: hidden;
+			width: 100%;
+			margin: 0 auto;
+			position: relative;
+			table-layout: fixed;
+		}
+		table.scrlivebatt td,table.scrliveb td{
+			font-size:11px;
+			font-weight: 500;
+			padding: 2px 0px
+		}
+		table tr.headerdetail {
+			background-color:#c5ccd1;
+		}
+		table tr.headerdetail td:nth-child(1),table.scrliveb tr.headerdetail td:nth-child(1),table tr.batdetailone td:nth-child(1),table tr.batdetailtwo td:nth-child(1){
+			width:50%;
+			padding-left: 4px;
+			white-space: nowrap;
+
+			overflow: hidden;
+		}
+		table tr.headerdetail td:nth-child(2),table tr.headerdetail td:nth-child(3),table.scrliveb tr.headerdetail td:nth-child(2),table.scrliveb tr.headerdetail td:nth-child(3){
+			width:25%;text-align: center;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		table.scrlivebatt tr.batdetailone td,table.scrlivebatt tr.batdetailtwo td,table.scrliveb tr.bowdetailone td{
+			background: #e6eaec;
+			text-align: center
+		}
+		.txtlft{
+			text-align: left !important;
+		}
+		.padtwo{
+			padding-left:4px !important;
+		}
+		.batdetailone td,.batdetailtwo td,.bowdetailone td{
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		.upcomingmatch{
+			    padding: 3px 4px 22px;
+			background: #008cca  ;
+		}
+		.live{
+			padding: 3px 4px 22px;
+			background: #019112     ;
+		}
+		.completed{
+			padding: 3px 4px 22px;
+			background: #d02b0f        ;
+		}
+		
+		.resultss{
+			font-size: 12px;
+			line-height: 14px;
+			text-align: center;
+			 margin-top:3px;
+			  display:inline-block;
+			  width:90%;
+		}
+		.liveresult{ margin-top:6px; display:block; font-size:12px;}
+		.liveDott{ display:inline-block; height:6px; width:6px; border-radius:100%; background:#c00; position: absolute; left:5px; top:5px; animation: pulse 1.7s infinite;}
+		.compleftedResult{ position:relative}
+		.compleftedResult.liveTxt{ padding-left:14px;}  
+		.progr-teamvs{
+			text-transform: uppercase;
+			display:inline-block
+		}
+		.timeCal{margin-top:2px; display:block; font-size:11px; font-weight:bold}
+		.verses{
+			font-size: 14px;
+			text-align: center;
+			background: #fff;
+			color: #000;
+			line-height: 17px;
+		}
+		.goalCount{
+			display:inline-block;
+			text-align:center;
+			width:50%;
+			 color:#c00; 
+			 font-weight:bold;
+			 font-size:14px;
+			  margin-top:1px;
+		}
+		.compleftedResult{
+			background: #fff;
+			 padding:1px 4px;
+			 font-size:11px;
+			 line-height:15px;
+			  color:#000;
+			  text-transform:uppercase;
+			  border-radius:2px;
+			
+		
+		}
+	.upcming-detail.dateTimeMatch{ margin-top:0px;}
+		
+        .recentmatch{
+            background: #199408;
+        }
+        .inningsbreakspan{
+            margin-top: 28px;
+    display: inline-block;
+    font-weight: bold;
+        }
+		.equaresult{
+			font-size:9px;
+			font-weight: 300;
+			text-align: center;
+			line-height: 11px;
+		}
+		.groupMatch{
+			display: block;
+    font-size: 12px;
+	 text-align:right;
+	  margin-top:2px;
+			}
+		@-webkit-keyframes pulse {
+			0% {
+				-webkit-box-shadow: 0 0 0 0 rgba(214, 2, 12, 0.8)
+			}
+
+			70% {
+				-webkit-box-shadow: 0 0 0 10px rgba(214, 2, 12, 0)
+			}
+
+			100% {
+				-webkit-box-shadow: 0 0 0 0 rgba(214, 2, 12, 0)
+			}
+		}
+
+		@keyframes pulse {
+			0% {
+				-moz-box-shadow: 0 0 0 0 rgba(214, 2, 12, 0.4);
+				box-shadow: 0 0 0 0 rgba(214, 2, 12, 0.4)
+			}
+
+			70% {
+				-moz-box-shadow: 0 0 0 6px rgba(214, 2, 12, 0);
+				box-shadow: 0 0 0 6px rgba(214, 2, 12, 0)
+			}
+
+			100% {
+				-moz-box-shadow: 0 0 0 0 rgba(214, 2, 12, 0);
+				box-shadow: 0 0 0 0 rgba(214, 2, 12, 0)
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="ipl_swiper">
+		<div class="swiper-container">
+			<ul class="swiper-wrapper">
+				<li class="swiper-slide firstslide" id="firstslide">
+					<div class="live-football">
+						<div class="scrmatch">
+							<div class="match-detail">
+							</div>
+							<div class="teamvs"></div>
+						</div>
+						<div class="scrcard">
+							<div class="currentscore"></div>
+							<div class="overs"></div>
+							<div class="target"></div>
+						</div>
+					</div>
+				</li>
+				<li class="swiper-slide secondslide" id="secondslide">
+                  <div class="live-football">
+						<div class="scrmatch">
+							<div class="match-detail">
+							</div>
+							<div class="teamvs"></div>
+						</div>
+						<div class="scrcard">
+							<div class="currentscore"></div>
+							<div class="overs"></div>
+							<div class="target"></div>
+						</div>
+					</div>
+				 </li>
+				<li class="swiper-slide thirdslide" id="thirdslide">	
+					<div class="live-batting">
+						<div class="scrmatch">
+							<div class="match-detail">
+							</div>
+							<div class="teamvs"></div>
+						</div>
+						<div class="scrcard">
+							<div class="currentscore"></div>
+							<div class="overs"></div>
+							<div class="target"></div>
+						</div>
+					</div>
+				</li>
+				<li class="swiper-slide fourthslide" id="fourthslide">
+					<div class="matchprog-detail upcomingmatch"></div>
+					<div class="upcming-detail">
+						<div class="teamvs-upcoming"></div>
+						<div class="upcoming-date"></div>
+						<div class="upcoming-time"></div>
+						<div class="upc-yettogo"></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+    <script src="https://smedia2.intoday.in/indiatoday/1.0.4/resources/js/jquery1.8.js"></script>
+	<script src="https://smedia2.intoday.in/mailer/election-2017/swiper.min.js"></script>
+	<script type="text/javascript">
+		var JsonfeedURL = 'https://feeds.intoday.in/rss-feeds/ver1.0/sportsinteractive/f53a717e/sports/football/106_calendar.json';
+		//var JsonfeedURL = 'calender.json';       
+		var isSwiperOn = 1;
+		var swiper;
+		var refTime = 1500;
+        var batTeam = 'batTeam';
+        var innings_break = 0;
+		
+		var timeSet =function(date){
+			var month;
+			var datemonthset;
+			var res = date.split("/");
+			if(res[0] =="06" || res[0] ==06)
+			{
+			month = "June";
+			}
+			else if(res[0] =="07" || res[0] ==07){
+			 month = "July";
+			}
+			datemonthset = res[1] +" " + month;
+			
+		    return datemonthset;
+		}
+
+		function loadSwiper() {
+			var d = new Date();
+			var n = d.getTime();
+				
+			var matchNumber;
+			$.getJSON(JsonfeedURL + '?t=' + n, function(data) {
+				if (data.calendar.matches.length != 0) {
+				
+				    var dataArray=[];
+				    dataArray =data.calendar.matches;
+					var xyz = false;
+					dataArray.forEach(function(element, index) {
+					if(xyz) return false;
+					
+					//console.log('index  :   '+index);
+						  if(element.is_live == true){
+						     if(element.is_live == true && element.match_number == "Final"){
+							 getSlideData('first',data.calendar.matches[index], 'live');
+							 getSlideData('second',data.calendar.matches[index - 1], 'recent');
+							 getSlideData('third',data.calendar.matches[index - 2], 'recent');
+							 getSlideData('fourth',data.calendar.matches[index - 3], 'recent');
+							 xyz = true;
+							 return;
+							 }
+							 else if(element.is_live == true && element.match_number == "3rd Place Playoff"){
+							 getSlideData('first',data.calendar.matches[index], 'live');
+							 getSlideData('second',data.calendar.matches[index + 1], 'upcoming');
+							 getSlideData('third',data.calendar.matches[index - 1], 'recent');
+							 getSlideData('fourth',data.calendar.matches[index - 2], 'recent');
+							 xyz = true;
+							 return;
+							 }
+							 else if(element.is_live == true ){
+								 if(data.calendar.matches[index +1].is_live == true){
+									 getSlideData('first',data.calendar.matches[index], 'live');
+									 getSlideData('second',data.calendar.matches[index + 1], 'live');
+									 getSlideData('third',data.calendar.matches[parseInt(index -1)], 'recent');
+									 getSlideData('fourth',data.calendar.matches[index + 2], 'upcoming');
+									 xyz = true;
+									 return;
+								 
+							 }
+							 else{
+								 getSlideData('first',data.calendar.matches[index], 'live');
+								 getSlideData('second',data.calendar.matches[index - 1], 'recent');
+								 getSlideData('third',data.calendar.matches[parseInt(index + 1)], 'upcoming');
+								 getSlideData('fourth',data.calendar.matches[index + 2], 'upcoming');
+								 xyz = true;
+								 return;
+								 }
+							 } 
+						  }
+						  else if(element.is_upcoming == true && element.match_number == "Final"){
+						     getSlideData('first',data.calendar.matches[index -1], 'recent');
+							 getSlideData('second',data.calendar.matches[index - 2], 'recent');
+							 getSlideData('third',data.calendar.matches[index - 3], 'recent');
+							 getSlideData('fourth',data.calendar.matches[index], 'upcoming');
+							 xyz = true;
+							 return;
+						  }
+						  else if(element.is_upcoming == true && element.match_number == "3rd Place Playoff"){
+                            console.log('this');
+                              
+						     getSlideData('first',data.calendar.matches[index -1], 'recent');
+							 getSlideData('second',data.calendar.matches[index - 2], 'recent');
+							 getSlideData('third',data.calendar.matches[index], 'upcoming');+
+							 getSlideData('fourth',data.calendar.matches[index + 1], 'upcoming');
+							 xyz = true;
+							 return;
+						  }
+						  else if(element.is_upcoming == true){
+                              // console.log('this90');
+                             // console.log(data.calendar.matches[index-2].match_number);
+						     getSlideData('first',data.calendar.matches[index -1], 'recent');
+							 getSlideData('second',data.calendar.matches[index-2], 'recent');
+							 getSlideData('third',data.calendar.matches[index], 'upcoming');
+							 getSlideData('fourth',data.calendar.matches[index +1], 'upcoming');
+							 xyz = true;
+							 return false;
+						  }
+						  return false;
+					});					
+				} 
+
+				if (isSwiperOn) {
+					getSwiper();
+					isSwiperOn = 0;
+				} else {
+					//swiper.update();				
+				}
+			});
+		}
+
+		function getSwiper() {
+			swiper = new Swiper('#ipl_swiper .swiper-container', {
+				effect: 'cube',
+				simulateTouch: false,
+				grabCursor: false,
+				allowTouchMove: false,
+				autoplay: {
+					delay: 3000,
+					disableOnInteraction: false,
+					stopOnLast: false
+				},
+				speed: 2000,
+				loop: true,
+				cubeEffect: {
+					shadow: true,
+					slideShadows: true,
+					shadowOffset: 8,
+					shadowScale: 0.65,
+                    
+				},
+			});
+
+		}
+		
+		function getSlideData(id,data,othdetail) {  
+           	
+           //console.log(data.teama_short);
+          // console.log(data.match_number);	
+           var minsToAdd = 330;	
+		   var minToDed = parseInt(data.gmt_offset) * 60;
+		   var balMint = minsToAdd - minToDed;
+		   //console.log('balMint'+balMint);
+		   var _gmttime = parseInt(data.gmt_offset) * 60;
+		   var _str = data.matchtime_local;
+           var time = _str;
+				   
+	      var newTime = new Date(new Date("1970/01/01 " + time).getTime() + balMint * 60000).toLocaleTimeString('en-UK', { hour: '2-digit', minute: '2-digit', hour12: false });
+		 
+		// console.log('newTime'+newTime);
+         data.matchtime_local = newTime;
+		  // console.log(data.matchtime_local);
+		  	var extraTime = '';
+			var additional_minutes = data.additional_minutes;
+		 	if(typeof additional_minutes!='undefined' && additional_minutes>0) {
+				if(data.minutes==45 || data.minutes==90) {
+					extraTime = ' + '+ 	additional_minutes;
+				}
+			}
+			var halfTime = '';
+			//if(data.minutes==45 && data.seconds<=0 && additional_minutes<=0) {
+			if(data.match_status=='Half Time') {	
+				halfTime = data.match_status;
+				//console.log('halfTime'+halfTime);
+			}
+
+            if(othdetail == 'live'){
+				var str = '<div class="matchprog-detail live"><div class="progr-seriesna">FIFA WC</div><div class="compleftedResult liveTxt"><span class="liveDott"></span>LIVE</div></div><div class="upcming-detail"><div class="progr-teamvs">'+data.teama_short+'</div><span class="verses">Vs</span><div class="progr-teamvs">'+data.teamb_short+'</div><div class="goalCountSec"><div class="goalCount">'+data.teama_score+'</div><span></span><div class="goalCount">'+data.teamb_score+'</div></div>';	
+				 if(halfTime=='') {
+				 	str += '<div class="timeCal">Time : '+data.minutes+extraTime+'</div>';
+				 } else {
+					 str += '<div class="timeCal">'+halfTime+'</div>';
+				 }
+				 
+				 str += '<span class="resultss liveresult">'+data.venue+'</span></div>';			
+				$('.'+id+'slide').html(str)	
+					
+			}else if(othdetail == 'recent'){				
+				$('.'+id+'slide').html('<div class="matchprog-detail completed"><div class="progr-seriesna">FIFA WC</div><div class="compleftedResult">Completed</div></div><div class="upcming-detail"><div class="progr-teamvs">'+data.teama_short+'</div><span class="verses">Vs</span><div class="progr-teamvs">'+data.teamb_short+'</div><div class="goalCountSec"><div class="goalCount">'+data.teama_score+'</div><span></span><div class="goalCount">'+data.teamb_score+'</div></div><span class="resultss">'+data.match_result+'</span><div class="groupMatch">'+data.group+'</div></div>')		
+			}	
+			else{	
+//console.log(id+','+data+','+othdetail);			
+				$('.'+id+'slide').html('<div class="matchprog-detail upcomingmatch"><div class="progr-seriesna">FIFA WC</div><div class="compleftedResult">UPCOMING</div></div><div class="upcming-detail"><div class="progr-teamvs">'+data.teama_short+'</div><span class="verses">Vs</span><div class="progr-teamvs">'+data.teamb_short+'</div></div><div class="upcming-detail dateTimeMatch"><div class="upcoming-date">Date : '+timeSet(data.matchdate_local) +'</div><div class="upcoming-time">Time : '+data.matchtime_local+'(IST)</div><div class="upc-yettogo">'+data.venue+'</div><div class="groupMatch">'+data.group+'</div></div>')
+			 }				
+		}
+		
+		
+		$(document).ready(function() {
+			loadSwiper();
+			var invlSwiper = setInterval(function() {
+				loadSwiper();
+				swiper.update();
+			}, refTime * 10)
+		});
+	</script>
+</body>
+
+</html>
